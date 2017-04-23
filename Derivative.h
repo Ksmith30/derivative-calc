@@ -12,8 +12,9 @@ class Derivative
 		~Derivative();
 		
 		string Constant(string userInput);
-		void PowerRule(string userInput);
+		string PowerRule(string userInput, int position);
 	    bool is_number(const std::string &s);
+        void determineType(string userIpnut);
     private:
         string answer;
                        

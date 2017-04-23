@@ -1,5 +1,6 @@
 #include "Derivative.h"
 #include <cctype>
+#include <string>
 
 Derivative::Derivative()
 {
@@ -15,27 +16,40 @@ string Derivative::Constant(string userInput)
     return answer;
 }
 
-void Derivative::PowerRule(string userInput)
+string Derivative::PowerRule(string userInput, int position)
 {
+    int powerPosition = userInput[position + 1];
+    
+    int input = stoi(userInput);
+    
+       
+    return answer; 
+    
 }
 
-bool is_number(string s)
+/*bool Derivative::is_number(string s)
 {
     std::string::const_iterator it = s.begin();
     while (it != s.end() && std::isdigit(*it)) ++it;
     return !s.empty() && it == s.end();
+}*/
+
+void Derivative::determineType(string userInput)
+{
+    char exponential = '^';
+    int position = userInput.find(exponential,0);
+    PowerRule(userInput, position);
+
 }
 
 int main()
 {
     cout << "Input an equation to derive: ";
     string userInput;
-    string derivative;
+   
     cin >> userInput;
     Derivative der;
-    if (is_number(userInput))
-        derivative = der.Constant(userInput);
     
-    cout << "The derivative of this equation is: " << derivative << endl;
+    cout << "The derivative of this equation is: " << der.determineType(userInput) << endl;
     return 0;
 }
